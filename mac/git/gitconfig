@@ -1,0 +1,29 @@
+[user]
+	name = kumaasan
+	email = mariuszgl06@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = /Users/mariusz/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/mariusz/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/mariusz/.stCommitMsg
+[credential]
+	helper = store
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[push]
+	autoSetupRemote = true
+[alias]
+	st = status
+	cm = commit -m
+	co = checkout
+	br = branch
+	lg = log --oneline --graph --decorate --all

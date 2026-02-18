@@ -16,17 +16,16 @@ setopt globdots
 alias pa="php artisan"
 alias pas="php artisan serve"
 alias repairCommands="php artisan cache:clear && php artisan route:clear && php artisan optimize && php artisan view:clear"
-alias gs="git status"
 alias nrd="npm run dev"
-alias gc="git commit -m"
-alias gp="git push origin main"
-alias gitAuth="git config --global credential.helper store"
 
 
 alias c="clear"
 alias ls="eza --icons --oneline --git-repos --git"
 alias ll="eza --icons --git-repos --git --no-user --changed -l"
 alias la="eza -a --icons --no-user -l"
+alias dot="cd ~/Documents/dotfiles/mac && ls"
+alias conf="cd ~/.config && ll"
+
 
 alias routerWebServer='echo "https://192.168.0.1"'
 
