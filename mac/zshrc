@@ -28,7 +28,7 @@ alias ls="eza --icons --oneline --git-repos --git"
 alias ll="eza --icons --git-repos --git --no-user --changed -l"
 alias la="eza -a --icons --no-user -l"
 
-
+alias routerWebServer='echo "https://192.168.0.1"'
 
 # Herd injected PHP 8.4 configuration.
 export HERD_PHP_84_INI_SCAN_DIR="/Users/mariusz/Library/Application Support/Herd/config/php/84/"
