@@ -27,17 +27,15 @@ alias pipieWireReset="systemctl --user restart pipewire pipewire-pulse wireplumb
 alias dbtoggle='sudo systemctl is-active --quiet mariadb && sudo systemctl stop mariadb || sudo systemctl start mariadb'
 alias dbstatus='systemctl status mariadb'
 alias help='bat Documents/obsidian-luna-pc/arch\ linux\ commands.md'
-
+alias dot="cd ~/Documents/dotfiles/linux && ls"
+alias conf="cd ~/.config && ls"
 
 #coding
 alias pa="php artisan"
 alias pas="php artisan serve"
 alias repairCommands="php artisan cache:clear && php artisan route:clear && php artisan optimize && php artisan view:clear"
 alias nrd="npm run dev"
-alias gs="git status"
-alias gc="git commit -m"
-alias gp="git push origin main"
-alias gitAuth="git config --global credential.helper store"
+alias crd="composer run dev"
 
 
 

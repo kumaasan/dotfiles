@@ -3,3 +3,17 @@
 	email = mariuszgl06@gmail.com
 [credential]
 	helper = store
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[push]
+	autoSetupRemote = true
+[alias]
+	st = status
+	cm = commit -m
+	co = checkout
+	br = branch
+	lg = log --oneline --graph --decorate --all
