@@ -42,3 +42,35 @@ alias crd="composer run dev"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+# ═══════════════════════════════════════════════════════════════
+# PROMPT TOGGLE FUNCTION
+# Usage: toggle_prompt
+# ═══════════════════════════════════════════════════════════════
+
+toggle_prompt() {
+  local current_prompt=$(grep -c "ZSH_THEME=.*powerlevel10k" ~/.zshrc)
+  
+  if [[ $current_prompt -gt 0 ]]; then
+    # Switch to Starship
+    sed -i '/^ZSH_THEME=/s/.*/ZSH_THEME="" # Disabled for Starship/' ~/.zshrc
+    sed -i '/^plugins=/s/)/ zsh-starship)/' ~/.zshrc 2>/dev/null || \
+    sed -i '/^plugins=/s/)/ zsh-starship )/' ~/.zshrc
+    echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+    sed -i '/source ~/.p10k.zsh/d' ~/.zshrc
+    echo "Switched to Starship"
+  else
+    # Switch to Powerlevel10k  
+    sed -i '/ZSH_THEME=""/s/.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
+    sed -i '/eval "\$(starship init zsh)"/d' ~/.zshrc
+    sed -i '/source.*p10k-instant-prompt/d' ~/.zshrc
+    sed -i 's/zsh-starship)//' ~/.zshrc 2>/dev/null || true
+    echo '  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >> ~/.zshrc
+    echo '  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
+    echo "Switched to Powerlevel10k"
+  fi
+  
+  source ~/.zshrc
+  echo "Reloaded! New prompt active."
+}
+
